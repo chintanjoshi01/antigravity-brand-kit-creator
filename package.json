@@ -1,0 +1,56 @@
+{
+  "name": "antigravity-brand-kit-creator",
+  "displayName": "Brand Kit Creator & Design System Generator",
+  "version": "1.0.0",
+  "description": "Automated workflow extension for Google Antigravity & VS Code that generates 4K brand packages, vector SVGs, PNG rasters, brand guidelines, and Flutter/Tailwind theme tokens.",
+  "publisher": "chintanjoshi01",
+  "author": {
+    "name": "Chintan Joshi",
+    "url": "https://github.com/chintanjoshi01"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "keywords": [
+    "antigravity",
+    "brand-kit",
+    "design-system",
+    "flutter",
+    "tailwind",
+    "svg-generator",
+    "brand-guidelines"
+  ],
+  "categories": [
+    "Design",
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chintanjoshi01/antigravity-brand-kit-creator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chintanjoshi01/antigravity-brand-kit-creator/issues"
+  },
+  "homepage": "https://github.com/chintanjoshi01/antigravity-brand-kit-creator#readme",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onCommand:brandKit.create"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "brandKit.create",
+        "title": "Brand Kit: Create Brand Package & Design System Tokens",
+        "category": "Brand Kit"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": "brand-kit-creator",
+      "path": "skills/brand-kit-creator/SKILL.md"
+    }
+  ]
+}

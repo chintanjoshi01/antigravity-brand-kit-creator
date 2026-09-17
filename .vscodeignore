@@ -1,0 +1,7 @@
+.vscode/**
+.git/**
+.gitignore
+scratch/**
+temp_render.html
+*.tmp
+*.vsix
