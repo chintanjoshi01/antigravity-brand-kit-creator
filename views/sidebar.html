@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Kit Creator</title>
+<style>
+  :root {
+    --vscode-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  body {
+    font-family: var(--vscode-font-family);
+    padding: 12px;
+    margin: 0;
+    color: var(--vscode-foreground);
+    background-color: var(--vscode-sideBar-background);
+  }
+  h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: var(--vscode-sideBarTitle-foreground, #16A34A);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .form-group {
+    margin-bottom: 12px;
+  }
+  label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--vscode-input-placeholderForeground);
+  }
+  input[type="text"], select {
+    width: 100%;
+    padding: 6px 8px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid var(--vscode-input-border, #333);
+    background: var(--vscode-input-background, #1e1e1e);
+    color: var(--vscode-input-foreground, #fff);
+    font-size: 12px;
+  }
+  .color-picker-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  input[type="color"] {
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: transparent;
+    padding: 0;
+  }
+  .btn {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: opacity 0.2s;
+  }
+  .btn:hover {
+    opacity: 0.9;
+  }
+  .btn-primary {
+    background: var(--vscode-button-background, #16A34A);
+    color: var(--vscode-button-foreground, #ffffff);
+  }
+  .btn-secondary {
+    background: var(--vscode-button-secondaryBackground, #333333);
+    color: var(--vscode-button-secondaryForeground, #ffffff);
+  }
+  .presets-group {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .preset-chip {
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: var(--vscode-badge-background, #333);
+    color: var(--vscode-badge-foreground, #fff);
+    cursor: pointer;
+    border: 1px solid var(--vscode-input-border);
+  }
+  .preset-chip:hover {
+    border-color: #16A34A;
+  }
+  .divider {
+    height: 1px;
+    background: var(--vscode-sideBar-border, #333);
+    margin: 16px 0;
+  }
+  .status-box {
+    font-size: 11px;
+    padding: 8px;
+    border-radius: 4px;
+    background: var(--vscode-textBlockQuote-background, #222);
+    border-left: 3px solid #16A34A;
+    display: none;
+    margin-top: 10px;
+    word-break: break-all;
+  }
+</style>
+</head>
+<body>
+
+<h2>🎨 Brand Kit Generator</h2>
+
+<div class="form-group">
+  <label>Quick Presets</label>
+  <div class="presets-group">
+    <div class="preset-chip" onclick="applyPreset('proptreel')">PropTreel</div>
+    <div class="preset-chip" onclick="applyPreset('aabha')">AABHA</div>
+    <div class="preset-chip" onclick="applyPreset('digimenu')">DigiMenu</div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="brandName">Brand Name</label>
+  <input type="text" id="brandName" value="PropTreel" placeholder="e.g. PropTreel">
+</div>
+
+<div class="form-group">
+  <label for="primaryColor">Primary Brand Color</label>
+  <div class="color-picker-row">
+    <input type="color" id="primaryPicker" value="#16A34A" onchange="syncColor('primaryPicker', 'primaryColor')">
+    <input type="text" id="primaryColor" value="#16A34A" onchange="syncColor('primaryColor', 'primaryPicker')">
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="accentColor">Accent Gold / Highlight Color</label>
+  <div class="color-picker-row">
+    <input type="color" id="accentPicker" value="#D4A017" onchange="syncColor('accentPicker', 'accentColor')">
+    <input type="text" id="accentColor" value="#D4A017" onchange="syncColor('accentColor', 'accentPicker')">
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="tagline">Master Tagline</label>
+  <input type="text" id="tagline" value="Realty. Through Real Reels. By Real People.">
+</div>
+
+<div class="form-group">
+  <label for="framework">Code Exporter Framework</label>
+  <select id="framework">
+    <option value="all">All (Flutter, Tailwind, SwiftUI, Compose)</option>
+    <option value="flutter">Flutter / Dart (Material 3)</option>
+    <option value="tailwind">TailwindCSS & CSS Variables</option>
+    <option value="swiftui">SwiftUI (iOS)</option>
+    <option value="compose">Jetpack Compose (Android)</option>
+  </select>
+</div>
+
+<button class="btn btn-primary" onclick="generateBrandKit()">
+  ⚡ Generate Brand Package & 4K Board
+</button>
+
+<button class="btn btn-secondary" onclick="exportTokens()">
+  📦 Export Code Theme Tokens
+</button>
+
+<div class="divider"></div>
+
+<h2>📱 Mobile & Web Native Assets</h2>
+<button class="btn btn-secondary" onclick="injectNativeAssets()">
+  📱 Inject Android/iOS App Icons & Splash
+</button>
+
+<div class="status-box" id="statusBox"></div>
+
+<script>
+  const vscode = acquireVsCodeApi();
+
+  function syncColor(srcId, targetId) {
+    document.getElementById(targetId).value = document.getElementById(srcId).value;
+  }
+
+  function applyPreset(name) {
+    if (name === 'proptreel') {
+      document.getElementById('brandName').value = 'PropTreel';
+      document.getElementById('primaryColor').value = '#16A34A';
+      document.getElementById('primaryPicker').value = '#16A34A';
+      document.getElementById('accentColor').value = '#D4A017';
+      document.getElementById('accentPicker').value = '#D4A017';
+      document.getElementById('tagline').value = 'Realty. Through Real Reels. By Real People.';
+    } else if (name === 'aabha') {
+      document.getElementById('brandName').value = 'AABHA';
+      document.getElementById('primaryColor').value = '#0E2D46';
+      document.getElementById('primaryPicker').value = '#0E2D46';
+      document.getElementById('accentColor').value = '#E2B857';
+      document.getElementById('accentPicker').value = '#E2B857';
+      document.getElementById('tagline').value = 'Ancient Wisdom. Your Voice.';
+    } else if (name === 'digimenu') {
+      document.getElementById('brandName').value = 'DigiMenu';
+      document.getElementById('primaryColor').value = '#D32F2F';
+      document.getElementById('primaryPicker').value = '#D32F2F';
+      document.getElementById('accentColor').value = '#424242';
+      document.getElementById('accentPicker').value = '#424242';
+      document.getElementById('tagline').value = 'Your Menu. More Possibilities.';
+    }
+  }
+
+  function getFormData() {
+    return {
+      name: document.getElementById('brandName').value,
+      primary: document.getElementById('primaryColor').value,
+      accent: document.getElementById('accentColor').value,
+      tagline: document.getElementById('tagline').value,
+      framework: document.getElementById('framework').value
+    };
+  }
+
+  function generateBrandKit() {
+    showStatus('Generating Brand Package & 4K Showcase Board...');
+    vscode.postMessage({ command: 'generateBrandKit', data: getFormData() });
+  }
+
+  function exportTokens() {
+    showStatus('Exporting Code Theme Tokens...');
+    vscode.postMessage({ command: 'exportTokens', data: getFormData() });
+  }
+
+  function injectNativeAssets() {
+    showStatus('Injecting Android & iOS Native App Icons & Splash...');
+    vscode.postMessage({ command: 'injectNativeAssets', data: getFormData() });
+  }
+
+  function showStatus(text) {
+    const box = document.getElementById('statusBox');
+    box.style.display = 'block';
+    box.innerText = text;
+  }
+
+  window.addEventListener('message', event => {
+    const message = event.data;
+    if (message.type === 'status') {
+      showStatus(message.text);
+    }
+  });
+</script>
+
+</body>
+</html>
