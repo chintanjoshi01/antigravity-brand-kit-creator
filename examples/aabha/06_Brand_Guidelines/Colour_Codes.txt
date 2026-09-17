@@ -1,0 +1,17 @@
+AABHA OFFICIAL COLOUR CODES REFERENCE v1.0
+
+1. Cosmic Navy (Primary Brand)
+   HEX: #0E2D46
+   RGB: rgb(14, 45, 70)
+
+2. Celestial Gold (Aura Accent)
+   HEX: #E2B857
+   RGB: rgb(226, 184, 87)
+
+3. Mystical Purple (Aura Glow)
+   HEX: #6B46C1
+   RGB: rgb(107, 70, 193)
+
+4. Night Canvas (Dark Background)
+   HEX: #071A29
+   RGB: rgb(7, 26, 41)

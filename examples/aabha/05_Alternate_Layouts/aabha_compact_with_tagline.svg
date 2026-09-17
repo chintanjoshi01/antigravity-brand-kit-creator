@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 140" width="750" height="140">
+  <g transform="translate(10, 10)">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Outer Celestial Ring -->
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#0E2D46" stroke-width="6" stroke-dasharray="4,4"/>
+  <!-- Aura Glow Radiance Rays -->
+  <g transform="translate(60, 60)">
+    <path d="M 0 -44 L 8 -18 L 44 0 L 8 18 L 0 44 L -8 18 L -44 0 L -8 -18 Z" fill="#E2B857"/>
+    <path d="M 0 -32 L 6 -12 L 32 0 L 6 12 L 0 32 L -6 12 L -32 0 L -6 -12 Z" fill="#6B46C1" opacity="0.8"/>
+    <circle cx="0" cy="0" r="10" fill="#E2B857"/>
+  </g>
+</svg>
+  </g>
+  <text x="145" y="80" font-family="'Cormorant Garamond', 'Times New Roman', serif" font-size="64" font-weight="700" letter-spacing="4" fill="#0E2D46">
+    AABHA
+  </text>
+  <text x="145" y="112" font-family="'Cormorant Garamond', 'Inter', serif" font-size="20" font-weight="600" font-style="italic" fill="#E2B857">
+          Ancient Wisdom. <tspan fill="#475569" font-style="normal">Your Voice.</tspan>
+        </text>
+</svg>

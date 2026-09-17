@@ -12,9 +12,9 @@
 
 ## 📸 Sample 4K Master Showcase Output
 
-Below is an automated 4K Master Showcase Board generated for **PropTreel**:
+Below is an automated 4K Master Showcase Board generated for **AABHA (आभा — Vedic AI Spiritual Companion)**:
 
-![PropTreel 4K Showcase Board](examples/proptreel_showcase.png)
+![AABHA 4K Showcase Board](examples/aabha_showcase.png)
 
 ---
 
