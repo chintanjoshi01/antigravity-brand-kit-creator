@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary scratch and render files
+scratch/
+temp_render.html
+*.tmp
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

@@ -1,0 +1,27 @@
+{
+  "name": "antigravity-brand-kit-creator",
+  "displayName": "Brand Kit Creator & Design System Generator for Antigravity",
+  "version": "1.0.0",
+  "description": "Automated workflow plugin for Google Antigravity that generates 4K brand package showcase boards, vector SVGs, high-res PNG rasters, brand guidelines, and Flutter/Tailwind theme tokens.",
+  "publisher": "chintanjoshi01",
+  "keywords": [
+    "antigravity",
+    "brand-kit",
+    "design-system",
+    "flutter",
+    "tailwind",
+    "svg-generator",
+    "brand-guidelines"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chintanjoshi01/antigravity-brand-kit-creator.git"
+  },
+  "skills": [
+    {
+      "name": "brand-kit-creator",
+      "path": "skills/brand-kit-creator/SKILL.md"
+    }
+  ]
+}
